@@ -1,0 +1,154 @@
+﻿@model IEnumerable<Customer>
+
+<div class="container-fluid">
+
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        CADASTRO
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <form>
+                        <label for="nome">Nome</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" id="nome" class="form-control" placeholder="Digite o nome aqui">
+                            </div>
+                        </div>
+
+                        <br>
+                        <button type="button" class="btn btn-primary m-t-15 waves-effect" onclick="CustomerAPI.cadastrar();">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="header">
+            <h2>
+                Lista
+            </h2>
+            <ul class="header-dropdown m-r--5">
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">more_vert</i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="datacad">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+
+                        @foreach (var r in Model)
+                        {
+
+                            <tr>
+                                <td>@r.id</td>
+                                <td>@r.Name</td>
+
+                            </tr>
+
+                        }
+                       
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        $('#datacad').DataTable({
+            dom: 'Bfrtip',
+            responsive: true,
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
+
+
+    var CustomerAPI = {
+
+        cadastrar: function () {
+
+            debugger;
+            var Nome = $("#nome").val();
+            if (Nome == "") {
+                swal("Atenção!", "O nome não pode ser vazio", "warning");
+            } else
+            {
+
+                servico = "/home/cadastrar";
+                jQuery.ajax({
+                    url: servico,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                       nome: Nome
+                    },
+
+
+                    success: function (data) {
+
+                        swal("Cadastro!", "cadastrado com successo!", "success");
+
+                        setTimeout(function () { location.reload(); }, 3000);
+
+                    }
+                });
+
+
+            }
+           
+
+           
+
+        }
+    }
+</script>
+
+
