@@ -11805,11 +11805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\App\\FEP\\ViewFep\\ViewFep\\ViewFep.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\App\\ViewFEP\\ViewFep\\ViewFep.csproj",
       "projectName": "ViewFep",
-      "projectPath": "C:\\Users\\User\\Desktop\\App\\FEP\\ViewFep\\ViewFep\\ViewFep.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\App\\ViewFEP\\ViewFep\\ViewFep.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\App\\FEP\\ViewFep\\ViewFep\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\App\\ViewFEP\\ViewFep\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
